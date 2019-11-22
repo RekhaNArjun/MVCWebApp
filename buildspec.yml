@@ -1,10 +1,11 @@
+
 phases: 
   build: 
     commands: 
       - "echo Build started on `date`"
       - "echo Building the Docker image..."
       - "docker build -t webappmvc ."
-      - "docker tag webappmvc:latest 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest"
+      - "docker tag webappmvc:latest 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc-rekha:v1.1.1"
   install: 
     runtime-versions: 
       docker: 18
