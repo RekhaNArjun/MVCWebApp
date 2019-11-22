@@ -7,13 +7,13 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --no-include-email --region us-east-1)
+      - Invoke-Expression -Command (Get-ECRLoginCommand -Region us-east-1).Command
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t webappmvc .
-      - docker tag webappmvc:latest 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest     
+      -docker build -t webappmvc .
+      - docker tag webappmvc:latest 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest
   post_build:
     commands:
       - echo Build completed on `date`
