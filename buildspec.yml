@@ -1,19 +1,19 @@
-phases:
-  install:
-    runtime-versions:
+phases: 
+  build: 
+    commands: 
+      - "echo Build started on `date`"
+      - "echo Building the Docker image..."
+      - "docker build -t webappmvc ."
+      - "docker tag webappmvc:latest 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest"
+  install: 
+    runtime-versions: 
       docker: 18
-  pre_build:
-    commands:
-      - echo Logging in to Amazon ECR...
-      - Invoke-Expression -Command (Get-ECRLoginCommand -Region us-east-1).Command
-  build:
-    commands:
-      - echo Build started on `date`
-      - echo Building the Docker image...          
-      -docker build -t webappmvc .
-      - docker tag webappmvc:latest 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest
-  post_build:
-    commands:
-      - echo Build completed on `date`
-      - echo Pushing the Docker image...
-      - docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest
+  post_build: 
+    commands: 
+      - "echo Build completed on `date`"
+      - "echo Pushing the Docker image..."
+      - "docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest"
+  pre_build: 
+    commands: 
+      - "echo Logging in to Amazon ECR..."
+      - "Invoke-Expression -Command (Get-ECRLoginCommand -Region us-east-1).Command"
