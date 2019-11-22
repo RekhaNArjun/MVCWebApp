@@ -14,9 +14,9 @@ phases:
       - "echo Build started on `date`"
       - "echo Building the Docker image..."          
       - "docker build -t webappmvc ."
-      - "docker tag webappmvc:latest 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest"      
+      - "docker tag webappmvc:latest 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:v1.1.0"      
   post_build:
     commands:
       - "echo Build completed on `date`"
       - "echo Pushing the Docker image..."
-      - "docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest"
+      - "docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:v1.1.0"
