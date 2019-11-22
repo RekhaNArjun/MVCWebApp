@@ -15,4 +15,4 @@ phases:
       - "docker tag webappmvc:latest 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:v1.1.2"
   post_build: 
     commands: 
-      - "docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:v1.1.2"
+      - "docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/webappmvc:latest"
